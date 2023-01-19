@@ -1,0 +1,7 @@
+upload_data lenet.png 200
+upload_data resnet.jpg 200
+
+infer lenet lenet.png 5
+infer resnet resnet.jpg 5
+
+job_stats

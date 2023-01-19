@@ -1,0 +1,6 @@
+sdfs_files/*
+downloads/*
+__pycache__
+__pycache__/*
+*.log
+mnist*.png
