@@ -1,4 +1,4 @@
-# Simple Distributed File System(SDFS)
+# Simple Distributed File System
 
 Girija Manoj Kumar Reddy
 

@@ -1,0 +1,10 @@
+put vm1.log file00.log
+put vm2.log file01.log
+put vm3.log file02.log
+put vm4.log file03.log
+put vm5.log file04.log
+put vm6.log file05.log
+put vm7.log file06.log
+put vm8.log file07.log
+put vm9.log file08.log
+put vm10.log file09.log
