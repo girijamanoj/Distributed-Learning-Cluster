@@ -1,0 +1,25 @@
+# Kills currently running servers on all nodes
+- name: Kill servers
+  hosts: MP1_All_Hosts
+  gather_facts: false
+  become: yes
+  become_user: root
+  tasks:
+    - name: get pids
+      shell: 'ps -ef | grep -v grep | grep -w "python3 /home/{{ lookup("env","USER") }}/cs425_mp1/server.py" | awk "{print $2}"'
+      register: running_processes
+
+    - name: Kill running processes
+      shell: "kill {{ item }}"
+      with_items: "{{ running_processes.stdout_lines }}"
+
+    - wait_for:
+        path: "/proc/{{ item }}/status"
+        state: absent
+      with_items: "{{ running_processes.stdout_lines }}"
+      ignore_errors: yes
+      register: killed_processes
+
+    - name: Force kill stuck processes
+      shell: "kill -9 {{ item }}"
+      with_items: "{{ killed_processes.results | select('failed') | map(attribute='item') | list }}"

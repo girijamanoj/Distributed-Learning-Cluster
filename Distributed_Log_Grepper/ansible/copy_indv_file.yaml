@@ -1,0 +1,12 @@
+# Copy single file/dir to other servers
+- name: Copy playbook
+  hosts: MP1_Hosts
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+    - name: copy files
+      copy:
+        src: "../server.py"
+        dest: "/home/{{ lookup("env","USER") }}/cs425_mp1/"
+

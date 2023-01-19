@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/styles.css') }}">
+    <title>Yet Another Distributed Grep - CS425</title>
+</head>
+<body>
+    <h1 class="Banner">Yet Another Distributed Grep - CS425</h1>
+    <div class="form">
+        <form method="POST">   
+            <input type="text" placeholder="Enter Text/Pattern" name="match" size="100">           
+            <p><select id="option" name="option">
+            <option value="text">Text</option>
+            <option value="pattern">Pattern</option>
+            </select>
+            <select id="cached" name="cached" style="display: inline;">
+                <option value="1">Cached</option>
+                <option value="0">Not Cached</option>
+            </select>
+            </p>
+            <input type="submit" placeholder="Search">
+        </form>
+        {% if counts!=None %}
+            <div class="output_table">
+                <h4>Searched for: {{ match }}</h4>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>HOST</th>
+                            <th>LOG FILE</th>
+                            <th>LINES MATCHED</th>
+                            <th>TIME TAKEN FOR CONNECTION AND QUERY</th>
+                            <th>TIME TAKEN FOR QUERY</th>
+                        </tr>
+                        {% for host in all_nodes %}
+                        <tr>
+                            <td>{{ host }}</td><td>{{ log_files[host] }}</td><td>{{ counts[host] }}</td><td>{{ timemap[host][1] }}</td><td>{{ timemap[host][0] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>TOTAL COUNT</th>
+                            <th>TOTAL TIME TAKEN FOR CONNECTIONS AND QUERIES</th>
+                            <th>TOTAL TIME TAKEN FOR QUERIES</th>
+                        </tr>
+                        <tr>
+                            <td>{{ total_count }}</td><td>{{ total_time_cq }}</td><td>{{ total_time_q }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+body {
+    background: linear-gradient(to right, #FFFFFF, #d4d3d3);
+    background-size: cover;
+    font-family: sans-serif;
+}
+.Banner {
+    text-align: center;
+}
+div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+.output_table{
+    display: block;
+    text-align: center;
+}
+table
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    text-align: center;
+    border: #888888;
+    width: 60%;
+}
+th {
+    background-color: #aaaaaa;
+    color: rgb(0, 0, 0);
+}
+input[type=text] {
+    width: 100%;
+    padding: 1%;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(168, 168, 168);
+}
+select {
+    margin-top: 1em;
+    /* margin-left: 10%; */
+    border-radius: 4px;
+    display: inline;
+    background-color: #888888;
+    width: 10%;
+    text-align: center;
+}
+
+p {
+    display: inline;
+    margin-left: 40%;
+}

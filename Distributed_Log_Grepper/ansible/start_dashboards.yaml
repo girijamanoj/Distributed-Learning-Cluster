@@ -1,0 +1,8 @@
+# Start flask daskboards on all servers
+- name: start dashboards
+  hosts: MP1_All_Hosts
+  gather_facts: false
+  tasks:
+    - shell: python3 /home/{{ lookup('env','USER') }}/cs425_mp1/dashboard.py > /dev/null 2>&1 &
+      async: 100
+      poll: 0

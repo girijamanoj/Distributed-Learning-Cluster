@@ -1,0 +1,14 @@
+# Installs PIP packages on all servers
+- name: PIP installations
+  hosts: MP1_Hosts
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+    - name: pip task
+      ansible.builtin.pip:
+        name: 
+          - prettytable
+          - flask
+          - argparse
+          - pytest

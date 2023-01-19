@@ -1,0 +1,11 @@
+# Copy dir to all other servers
+- name: Copy playbook
+  hosts: MP1_Test_Hosts
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+    - copy:
+        src: ../../cs425_mp1
+        dest: /home/{{ lookup('env', 'USER') }}/
+    - shell: chmod -R 777 /home/{{ lookup('env', 'USER') }}/cs425_mp1

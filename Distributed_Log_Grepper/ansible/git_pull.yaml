@@ -1,0 +1,10 @@
+# Performs git pull on other servers
+- name: Git Pull
+  hosts: MP1_Hosts
+  become: yes
+  become_user: root
+  gather_facts: false
+  tasks:
+    - shell: rm -r -f /home/{{ lookup("env","USER") }}/cs425_mp1/
+    - shell: cd /home/{{ lookup("env","USER") }}/
+    - shell: git clone https://gitlab.engr.illinois.edu/gmk6/cs425_mp1.git

@@ -1,0 +1,5 @@
+# Triggers server and client processess on all nodes
+- name: start servers and clients
+  hosts: MP1_Hosts
+  tasks:
+    - shell: python3 server.py && python3 client.py
